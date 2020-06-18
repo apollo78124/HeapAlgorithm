@@ -1,8 +1,10 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Scanner;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class HashSetAlgorithm {
@@ -58,6 +60,26 @@ public class HashSetAlgorithm {
         	System.out.println("NOT DISTINCT");
         }
         
+        //Question 4
+        Scanner inFile4 = new Scanner(new File("Queen_Dont_Stop_Me_Now.txt"));
+        TreeMap<String, Integer> treeMap1 = new TreeMap<String, Integer>();
+
+		while (inFile4.hasNext()) {
+			String word = inFile4.next();
+			if (treeMap1.containsKey(word)) {
+				Integer frequency = treeMap1.get(word);
+				treeMap1.replace(word, ++frequency);
+			} else {
+				treeMap1.put(word, 1);
+			}
+		}
+		
+		System.out.println("\nQuestion 4: ");
+		for (String name: treeMap1.keySet()){
+            String key = name;
+            String value = treeMap1.get(name).toString();  
+            System.out.println(key + " " + value);  
+} 
         
         
     } 
